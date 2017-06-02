@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hanhui.voucher.dao.impl.InstOrderDaoImpl">
+
+    <sql id="InstOrder">tt_inst_order</sql>
+    <resultMap id="beanMap" type="InstOrder">
+        <id column="instOrderId" property="INST_ORDER_ID"/>
+        <result column="instOrderNo" property="INST_ORDER_NO"/>
+        <result column="orgiInstOrderNo" property="ORGI_INST_ORDER_NO"/>
+        <result column="cardNo" property="CARD_NO"/>
+        <result column="instCode" property="INST_CODE"/>
+        <result column="orderType" property="ORDER_TYPE"/>
+        <result column="currency" property="CURRENCY"/>
+        <result column="amount" property="AMOUNT"/>
+        <result column="productCode" property="PRODUCT_CODE"/>
+        <result column="fundChannelCode" property="FUND_CHANNEL_CODE"/>
+        <result column="fundChannelApi" property="FUND_CHANNEL_API"/>
+        <result column="status" property="STATUS"/>
+        <result column="gmtCreate" property="GMT_CREATE"/>
+        <result column="gmtModified" property="GMT_MODIFIED"/>
+        <result column="memo" property="MEMO"/>
+    </resultMap>
+
+
+    <insert id="insert" parameterType="InstOrder">
+        insert into
+        <include refid="InstOrder"/>
+        (INST_ORDER_NO,ORGI_INST_ORDER_NO,CARD_NO,INST_CODE,ORDER_TYPE,CURRENCY,AMOUNT,
+        PRODUCT_CODE,FUND_CHANNEL_CODE,FUND_CHANNEL_API,
+        STATUS,GMT_CREATE,GMT_MODIFIED,MEMO)
+        values(#{instOrderNo},#{orgiInstOrderNo},#{cardNo},#{instCode},#{orderType},
+        #{currency},#{amount},#{productCode},#{fundChannelCode},
+        #{fundChannelApi},#{status},#{gmtCreate},#{gmtModified},
+        #{memo})
+    </insert>
+
+
+</mapper>

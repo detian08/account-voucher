@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="voucher-service-facade:war exploded">
+    <output-path>$PROJECT_DIR$/voucher-service-facade/target/voucher-service-facade</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="voucher-service-facade" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/voucher-service-facade/target/voucher-service-facade/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="voucher-service-facade/web/Web" />
+    </root>
+  </artifact>
+</component>

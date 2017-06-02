@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hanhui.voucher.dao.impl.InLogDaoImpl">
+
+    <sql id="InVoucherLog">tt_in_voucher_log</sql>
+    <resultMap id="beanMap" type="InVoucherLog">
+        <id column="logId" property="LOG_ID"/>
+        <result column="reqNo" property="REQ_NO"/>
+        <result column="reqInfo" property="REQ_INFO"/>
+        <result column="gmtCreate" property="GMT_CREATE"/>
+        <result column="gmtModified" property="GMT_MODIFIED"/>
+        <result column="actionCode" property="ACTION_CODE"/>
+        <result column="actionName" property="ACTION_NAME"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="InVoucherLog">
+        insert into
+        <include refid="InVoucherLog"/>
+        (req_no,
+        req_info,
+        gmt_create,
+        gmt_modified,
+        action_code,
+        action_name)
+        values (
+        #{reqNo},
+        #{reqInfo},
+        #{gmtCreate},
+        #{gmtModified},
+        #{actionCode},
+        #{actionName}
+        )
+    </insert>
+
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../voucher-common/voucher-common.iml" filepath="$PROJECT_DIR$/../voucher-common/voucher-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../voucher-common-config/voucher-common-config.iml" filepath="$PROJECT_DIR$/../voucher-common-config/voucher-common-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../voucher-dao/voucher-dao.iml" filepath="$PROJECT_DIR$/../voucher-dao/voucher-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/voucher-parent.iml" filepath="$PROJECT_DIR$/voucher-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../voucher-service/voucher-service.iml" filepath="$PROJECT_DIR$/../voucher-service/voucher-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../voucher-service-facade/voucher-service-facade.iml" filepath="$PROJECT_DIR$/../voucher-service-facade/voucher-service-facade.iml" />
+    </modules>
+  </component>
+</project>

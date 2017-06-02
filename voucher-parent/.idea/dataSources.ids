@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - edu_demo@localhost" uuid="6c503a3a-ce22-4510-9dc8-b53f98f9e141">
+    <database-info product="MySQL" version="5.6.35" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="edu_demo"/>
+      <table id="2" parent="1" name="edu_edmo_pms_user">
+        <comment>用户信息表</comment>
+      </table>
+      <table id="3" parent="1" name="t_payment_voucher"/>
+      <table id="4" parent="1" name="tt_inner_order_log">
+        <comment>对内日志表</comment>
+      </table>
+      <table id="5" parent="1" name="tt_inst_order">
+        <comment>订单</comment>
+      </table>
+      <table id="6" parent="1" name="tt_inst_order_result">
+        <comment>对账</comment>
+      </table>
+      <table id="7" parent="1" name="tt_outer_order_log">
+        <comment>对外日志表</comment>
+      </table>
+      <column id="8" parent="2" name="id">
+        <comment>ID</comment>
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="9" parent="2" name="version">
+        <comment>version</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="10" parent="2" name="create_time">
+        <comment>创建时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="11" parent="2" name="user_no">
+        <comment>用户帐号</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="12" parent="2" name="user_type">
+        <comment>用户类型（1:超级管理员，2:普通管理员，3:用户主帐号，4:用户子帐号）</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="13" parent="2" name="main_user_id">
+        <comment>主帐号ID</comment>
+        <data-type>bigint(50)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="14" parent="2" name="user_pwd">
+        <comment>登录密码</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="15" parent="2" name="user_name">
+        <comment>姓名</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="16" parent="2" name="mobile_no">
+        <comment>手机号</comment>
+        <data-type>varchar(15)</data-type>
+      </column>
+      <column id="17" parent="2" name="email">
+        <comment>邮箱</comment>
+        <data-type>varbinary(100)</data-type>
+      </column>
+      <column id="18" parent="2" name="status">
+        <comment>状态(100:可用，101:不可用 )</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="19" parent="2" name="last_login_time">
+        <comment>最后登录时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="20" parent="2" name="is_changed_pwd">
+        <comment>是否更改过密码</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="21" parent="2" name="pwd_error_count">
+        <comment>连续输错密码次数</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="22" parent="2" name="pwd_error_time">
+        <comment>最后输错密码时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="23" parent="2" name="remark">
+        <comment>备注</comment>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <index id="24" parent="2" name="AK_Key_2">
+        <columns>user_no</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="25" parent="2" name="AK_Key_2">
+        <columns>user_no</columns>
+        <underlying-index>AK_Key_2</underlying-index>
+      </key>
+      <key id="26" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="27" parent="3" name="voucher_no">
+        <comment>凭证号</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="28" parent="3" name="source_voucher_no">
+        <comment>原始凭证号</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="29" parent="3" name="source">
+        <comment>来源</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="30" parent="3" name="related_source_voucher_no">
+        <comment>关联原始凭证号</comment>
+        <data-type>varchar(1000)</data-type>
+      </column>
+      <column id="31" parent="3" name="access_type">
+        <comment>入口类型</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="32" parent="3" name="product_code">
+        <comment>产品码</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="33" parent="3" name="payment_detail">
+        <comment>支付详情</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="34" parent="3" name="extension">
+        <comment>扩展</comment>
+        <data-type>varchar(4000)</data-type>
+      </column>
+      <column id="35" parent="3" name="gmt_create">
+        <comment>创建时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="36" parent="3" name="gmt_modified">
+        <comment>更新时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="37" parent="3" name="memo">
+        <comment>备注</comment>
+        <data-type>varchar(1000)</data-type>
+      </column>
+      <key id="38" parent="3" name="PRIMARY">
+        <columns>voucher_no</columns>
+        <primary>1</primary>
+      </key>
+      <column id="39" parent="4" name="LOG_ID">
+        <comment>日志ID</comment>
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="40" parent="4" name="REQ_NO">
+        <comment>请求唯一识别</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="41" parent="4" name="REQ_INFO">
+        <comment>请求信息</comment>
+        <data-type>varchar(3072)</data-type>
+      </column>
+      <column id="42" parent="4" name="GMT_CREATE">
+        <comment>创建时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="43" parent="4" name="PRIMARY">
+        <columns>LOG_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="44" parent="5" name="INST_ORDER_ID">
+        <comment>机构订单ID</comment>
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="45" parent="5" name="INST_ORDER_NO">
+        <comment>机构订单号</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="46" parent="5" name="ORGI_INST_ORDER_NO">
+        <comment>原始机构订单号</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="47" parent="5" name="CARD_NO">
+        <comment>银行卡号</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="48" parent="5" name="INST_CODE">
+        <comment>机构编码</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="49" parent="5" name="ORDER_TYPE">
+        <comment>订单类型：I（入款），B（退款），O（出款）</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="50" parent="5" name="CURRENCY">
+        <comment>币种</comment>
+        <data-type>char(3)</data-type>
+      </column>
+      <column id="51" parent="5" name="AMOUNT">
+        <comment>金额</comment>
+        <data-type>decimal(15,2)</data-type>
+      </column>
+      <column id="52" parent="5" name="PRODUCT_CODE">
+        <comment>产品编码</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="53" parent="5" name="PAYMENT_CODE">
+        <comment>支付编码</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="54" parent="5" name="PAY_MODE">
+        <comment>支付模式</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="55" parent="5" name="FUND_CHANNEL_CODE">
+        <comment>渠道编码</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="56" parent="5" name="FUND_CHANNEL_API">
+        <comment>渠道API</comment>
+        <data-type>varchar(48)</data-type>
+      </column>
+      <column id="57" parent="5" name="STATUS">
+        <comment>状态：I（处理中），S（成功），F（失败）</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="58" parent="5" name="COMMUNICATE_STATUS">
+        <comment>通讯类型（等待指令发送），S（指令已经发送），R（数据已经返回），F（指令发送失败）</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="59" parent="5" name="GMT_SUBMIT">
+        <comment>提交时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="60" parent="5" name="GMT_CREATE">
+        <comment>创建时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <column id="61" parent="5" name="GMT_MODIFIED">
+        <comment>最后修改时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <column id="62" parent="5" name="MEMO">
+        <comment>备注</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="63" parent="5" name="GMT_BOOKING_SUBMIT">
+        <comment>预定提交时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <column id="64" parent="5" name="RETRY_TIMES">
+        <comment>重试次数</comment>
+        <data-type>smallint(6)</data-type>
+      </column>
+      <column id="65" parent="5" name="GMT_NEXT_RETRY">
+        <comment>下次执行时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <column id="66" parent="5" name="ROUTE_VERSION">
+        <comment>路由版本</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="67" parent="5" name="REVERSAL_STATUS">
+        <comment>路由状态</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="68" parent="5" name="EXTENSION">
+        <comment>扩展信息</comment>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <key id="69" parent="5" name="PRIMARY">
+        <columns>INST_ORDER_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="70" parent="6" name="RESULT_ID">
+        <comment>结果ID</comment>
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="71" parent="6" name="BATCH_RESULT_ID">
+        <comment>结果批次</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="72" parent="6" name="INST_ORDER_ID">
+        <comment>机构订ID</comment>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="73" parent="6" name="INST_ORDER_NO">
+        <comment>机构订单号</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="74" parent="6" name="ORGI_INST_ORDER_NO">
+        <comment>原始机构订单号</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="75" parent="6" name="FUNDIN_ORGI_INST_ORDER_NO">
+        <comment>入款原机构订单号</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="76" parent="6" name="INST_SEQ_NO">
+        <comment>机构序列号</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="77" parent="6" name="ORDER_TYPE">
+        <comment>订单类型</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="78" parent="6" name="REAL_AMOUNT">
+        <comment>实际金额</comment>
+        <data-type>decimal(15,2)</data-type>
+      </column>
+      <column id="79" parent="6" name="REAL_CURRENCY">
+        <comment>订单币种</comment>
+        <data-type>char(3)</data-type>
+      </column>
+      <column id="80" parent="6" name="ACCOUNT_NAME">
+        <comment>账户名</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="81" parent="6" name="ACCOUNT_NO">
+        <comment>账号</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="82" parent="6" name="CARD_TYPE">
+        <comment>账户类型</comment>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="83" parent="6" name="COMPARE_STATUS">
+        <comment>对账状态</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="84" parent="6" name="GMT_MODIFIED">
+        <comment>修改时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="85" parent="6" name="GMT_CREATE">
+        <comment>创建时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <column id="86" parent="6" name="MEMO">
+        <comment>备注</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="87" parent="6" name="FUND_CHANNEL_CODE">
+        <comment>渠道编码</comment>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="88" parent="6" name="OPERATE_STATUS">
+        <comment>操作状态</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="89" parent="6" name="DIFF_MSG">
+        <comment>差异信息</comment>
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="90" parent="6" name="SYNC_CHANNEL_STATUS">
+        <comment>同步结果给渠道.S发送成功,F发送失败,I发送中</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="91" parent="6" name="EXTENSION">
+        <comment>扩展信息</comment>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <key id="92" parent="6" name="PRIMARY">
+        <columns>RESULT_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="93" parent="7" name="LOG_ID">
+        <comment>日志ID</comment>
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="94" parent="7" name="REQ_NO">
+        <comment>请求唯一识别</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="95" parent="7" name="REQ_INFO">
+        <comment>请求信息</comment>
+        <data-type>varchar(3072)</data-type>
+      </column>
+      <column id="96" parent="7" name="GMT_CREATE">
+        <comment>创建时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="97" parent="7" name="PRIMARY">
+        <columns>LOG_ID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
