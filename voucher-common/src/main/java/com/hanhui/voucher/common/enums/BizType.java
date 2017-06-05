@@ -11,7 +11,9 @@ public enum BizType {
 
     FUNDOUT("O", "出款"),
 
-    TRANSFER("T", "转账");
+    TRANSFER("T", "转账"),
+
+    OPENACCOUNT("P","开户");
 
     /**
      * 代码

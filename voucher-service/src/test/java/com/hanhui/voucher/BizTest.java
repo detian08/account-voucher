@@ -25,14 +25,13 @@ public class BizTest {
 
     static Logger logger = LoggerFactory.getLogger(BizTest.class);
 
-
     public static String ACCOUNT_NO = "6228480402564890018";
 
     public static String USER_NAME = "100008265";
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/voucher-service-context.xml");
-        apply(ctx);
+        //ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/voucher-service-context.xml");
+        //apply(ctx);
         //openAccountTest(ctx);
     }
 
@@ -69,7 +68,7 @@ public class BizTest {
     //构造实体
     public static InstOrder buildInstOrder(String productCode, String bizType, BigDecimal money) {
         InstOrder instOrder = new InstOrder();
-        instOrder.setInstOrderNo(System.nanoTime()+""); //对应分录凭证号
+        instOrder.setInstOrderNo(String.valueOf(System.nanoTime())); //对应分录凭证号
         instOrder.setOrgiInstOrderNo(UUID.randomUUID().toString());
         instOrder.setCardNo(ACCOUNT_NO);
         instOrder.setInstCode("shoujidai");

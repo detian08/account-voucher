@@ -37,15 +37,15 @@ public class OpenAccountBiz {
      */
     public boolean openAccount(OpenAccountResult openAccountResult) {
         String cardNo = openAccountResult.getEacctNo();//账户
-        String memnberId = openAccountResult.getCoopCustNo();
-        String reqNo = openAccountResult.getReqNo();
+        String memberId = openAccountResult.getCoopCustNo(); //合作方客户账号
+        String reqNo = openAccountResult.getReqNo(); //请求流水号
         OperationEnvironment env = generateEnvironment();//环境变量
         GetAccountByAccountNoResp resp = accountService.getAccountByCardNo(cardNo, env);
         if (resp == null) {
             return false;
         } else if (resp.getCode() == ReturnCode.RECORD_NOT_FOUND.getCode() && resp.getAccount() == null) {
             // 创建外部户请求
-            InsertOuterAccountReq accountReq = buildInsertOuterAccountReq(cardNo, memnberId, reqNo);
+            InsertOuterAccountReq accountReq = buildInsertOuterAccountReq(cardNo, memberId, reqNo);
             // 开户请求
             InsertOuterAccountResp accountResp = accountService.insertOuterAccount(accountReq, env);
             logger.info("-----------message----------->" + accountResp.getMessage());
